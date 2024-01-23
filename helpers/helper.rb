@@ -8,12 +8,11 @@ def calculateAnswer(player)
   begin
     Timeout.timeout(10) do
       player_answer = gets.chomp
-      return player_answer
     end
   rescue Timeout::Error
     puts "Time's up!"
+    player_answer = "0"
   end
-  player_answer = 0
   player.calculateLives(player_answer, answer)
 end
 
