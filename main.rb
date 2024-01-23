@@ -11,6 +11,7 @@ class Player
     @difficulty = 10
   end
 
+  #Compares players answer to generated answer and gives the appropriate response
   def calculateLives(playersAnswer, answer)
     puts "The answer is: #{answer}"
     if playersAnswer.to_i != answer
@@ -31,7 +32,7 @@ while p1.lives != 0 && p2.lives != 0
   #Increases level count
   puts "----- DIFFICULTY: LEVEL #{level} -----"
   level += 1
-  
+
   #Player 1's turn!
   calculateAnswer(p1)
 
@@ -47,5 +48,3 @@ while p1.lives != 0 && p2.lives != 0
   puts "P2: #{p2.lives}/3 "
   checkIfPlayerLoses(p2, p1, 1)
 end
-
-#Timer, imports
