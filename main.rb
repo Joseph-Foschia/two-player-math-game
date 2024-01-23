@@ -1,4 +1,5 @@
 require './helpers/helper'
+require 'timeout'
 
 class Player
 
@@ -26,6 +27,11 @@ p1 = Player.new('Player 1')
 p2 = Player.new('Player 2')
 
 while p1.lives != 0 && p2.lives != 0
+
+  #Increases level count
+  puts "----- DIFFICULTY: LEVEL #{level} -----"
+  level += 1
+  
   #Player 1's turn!
   calculateAnswer(p1)
 
@@ -40,10 +46,6 @@ while p1.lives != 0 && p2.lives != 0
   calculateAnswer(p2)
   puts "P2: #{p2.lives}/3 "
   checkIfPlayerLoses(p2, p1, 1)
-
-  #Increases level count
-  level += 1
-  puts "----- DIFFICULTY: LEVEL #{level} -----"
 end
 
 #Timer, imports
