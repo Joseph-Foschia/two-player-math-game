@@ -35,18 +35,24 @@ def checkIfPlayerLoses(currentPlayer, opponent, playerNum)
     puts "Player #{playerNum} wins with a score of #{opponent.lives}/3"
   end
 end
-
+level = 1
 p1 = Player.new('Player 1')
 p2 = Player.new('Player 2')
 
 while p1.lives != 0 && p2.lives != 0
+  #Player 1's turn!
   calculateAnswer(p1)
   puts "P1: #{p1.lives}/3 "
   checkIfPlayerLoses(p1, p2, 2)
   break if p1.lives == 0
   
   puts "----- NEW TURN -----"
+  #Player 2's turn!
   calculateAnswer(p2)
   puts "P2: #{p2.lives}/3 "
   checkIfPlayerLoses(p2, p1, 1)
+
+  #Increases level count
+  level += 1
+  puts "----- DIFFICULTY: LEVEL #{level} -----"
 end
